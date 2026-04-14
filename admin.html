@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Upload Wallpaper</h2>
+
+  <form id="uploadForm">
+
+    <label>Preview Image</label>
+    <input type="file" name="preview" required>
+
+    <label>Full Image</label>
+    <input type="file" name="full" required>
+
+    <label>Select Category</label>
+    <select id="categorySelect"></select>
+
+    <label>Or New Category</label>
+    <input type="text" id="newCategory" placeholder="Enter new category">
+
+    <!-- ✅ NEW FIELD -->
+    <label>Image Description (optional)</label>
+    <textarea id="description" placeholder="Enter description..."></textarea>
+
+    <button type="submit">Upload 🚀</button>
+
+  </form>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

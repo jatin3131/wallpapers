@@ -1,0 +1,401 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5f5f5;
+}
+
+/* HEADER STICKY */
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* SEARCH */
+.searchBox {
+  flex: 0 0 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchBox input {
+  width: 100%;
+  padding: 10px 16px;
+  padding-left: 35px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.searchBox input:hover {
+  background: #fff;
+  border-color: #bbb;
+}
+
+.searchBox input:focus {
+  background: #fff;
+  border-color: #ff4d4d;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.2);
+}
+
+#searchBtn {
+  position: absolute;
+  right: 5px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+/* RIGHT BUTTON */
+.right {
+  margin-left: auto;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.05);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.right span {
+  position: relative;
+  z-index: 2;
+}
+
+.right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #ff4d4d, #ff0000);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.right:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.right:hover::before {
+  transform: translateY(0);
+}
+
+/* CATEGORY BAR */
+.categoryBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+
+.filterBtn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background: #eee;
+  cursor: pointer;
+}
+#modal {
+  align-items: flex-start; /* instead of center */
+  padding-top: 30px; /* adjust based on your navbar height */
+}
+/* CATEGORIES */
+#categories {
+  display: flex;
+  gap: 10px;
+}
+
+.modalCategories {
+  display: flex;
+  gap: 10px;
+}
+
+.modalCategories div {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* TEXT */
+.modalCategories div span {
+  position: relative;
+  z-index: 2; /* ⬅ MUST be above gradient */
+}
+
+/* GRADIENT */
+.modalCategories div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #ff4d4d, #ff0000);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  z-index: 1; /* ⬅ BELOW text */
+}
+
+/* HOVER */
+.modalCategories div:hover::before {
+  transform: translateY(0);
+}
+
+.modalCategories div:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+#categories div {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#categories div span {
+  position: relative;
+  z-index: 1;
+}
+
+#categories div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #ff4d4d, #ff0000);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+#categories div:hover::before {
+  transform: translateY(0);
+}
+
+#categories div:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* GRID */
+#grid {
+  column-count: 5;
+  column-gap: 15px;
+  padding: 20px;
+  background-color: #333;
+}
+
+#grid img {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+#grid img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  filter: brightness(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  #grid { column-count: 3; }
+}
+
+@media (max-width: 600px) {
+  #grid { column-count: 2; }
+}
+
+/* Modal background */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999; /* ⬅ HIGHER than navbar */
+}
+.modalCategories {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0; /* ⬅ increase spacing */
+  padding: 10px 0; /* ⬅ extra breathing room */
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modalContent {
+  width: 95%;
+  max-width: 1100px;
+  background: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Heading */
+.modalHeading {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* IMAGE ROW */
+.modalImages {
+  display: flex;
+  gap: 20px;
+}
+
+.imgBox {
+  width: 50%;
+  background: #111;
+  text-align: center;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: #111;
+}
+
+/* CATEGORY BAR */
+#categories div{
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgb(50, 210, 228);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.modalCategories div {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgb(0, 140, 156);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+/* GRID */
+#modalGrid {
+  column-count: 5;
+  column-gap: 15px;
+  padding: 10px;
+  background-color: #111;
+}
+
+#modalGrid img {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  display: block;
+  cursor: pointer;
+
+  transition: transform 0.35s ease, 
+              box-shadow 0.35s ease, 
+              filter 0.35s ease;
+}
+
+#modalGrid img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  filter: brightness(1.05);
+}
+@media (max-width: 1000px) {
+  #modalGrid { column-count: 3; }
+}
+
+@media (max-width: 600px) {
+  #modalGrid { column-count: 2; }
+}
+
+#downloadBtn {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  background: #ff0000;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#downloadBtn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.5);
+}
+
+#downloadBtn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* WAVE */
+#downloadBtn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 40%;
+  transform: translateX(-50%);
+  transition: bottom 1.2s ease;
+}
+
+/* ACTIVE STATE */
+#downloadBtn.loading::before {
+  bottom: 0;
+  animation: waveMove 2s linear infinite;
+}
+
+/* WAVE ANIMATION */
+@keyframes waveMove {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}

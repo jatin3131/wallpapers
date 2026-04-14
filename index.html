@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="logo">Wallify</div>
+
+    <div class="searchBox">
+  <input type="text" id="search" placeholder="Search wallpapers...">
+  <button id="searchBtn">🔍</button>
+</div>
+
+    <div class="right"><span>About</span></div>
+  </div>
+
+  <!-- CATEGORY BAR -->
+  <div class="categoryBar">
+    <button class="filterBtn">Filters</button>
+    <div id="categories"></div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<div id="grid"></div>
+
+<div id="modal" class="hidden">
+  <div class="modalContent">
+
+    <h2 class="modalHeading">My Wallpapers</h2>
+
+    <!-- TOP IMAGES -->
+    <div class="modalImages">
+      
+      <div class="imgBox">
+        <p>Preview</p>
+        <img id="previewImg">
+      </div>
+
+      <div class="imgBox">
+        <p>Wallpaper</p>
+        <img id="fullImg">
+         <button id="downloadBtn">Download</button>
+      </div>
+
+    </div>
+
+    <!-- CATEGORY BAR -->
+    <div id="modalCategories" class="modalCategories"></div>
+
+    <!-- GRID -->
+    <div id="modalGrid"></div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
